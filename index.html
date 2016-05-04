@@ -31,8 +31,7 @@
     }
     $('.heart').each(function(index, value) {
       var r = Math.random() * (5000 - 1000) + 1000;
-      var d = Math.random() * (500 - 100) + 100;
-      $(this).delay(d).fadeIn(r)
+      $(this).css('visibility','visible').hide().fadeIn(r)
     });
 
 
