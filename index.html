@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Heart of the Day</title>
+  <meta name="description" content="Heart of the day">
+  <meta name="author" content="Adam">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="hearts">
+    <div id="footer"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+  <script>
+    mkHeart = function(d) {
+      var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      var month = months[d.getMonth()];
+      var day = d.getDate();
+      var h = '<div class="heart">'+month+'<br>'+day+'</div>';
+      $( ".hearts" ).append(h);
+    }
+    var d = new Date('Sun, 17 Jan 2016 14:02:05 GMT');
+    var n = Date.now();
+    var diff = Math.ceil(Math.abs(n - d.getTime())/ (1000 * 3600 * 24));
+    $('#footer').html('H, ' + diff + ' days, ' + diff + ' hearts for my love.');
+    while (d <= n) {
+      mkHeart(d);
+      d.setDate(d.getDate() + 1);
+    }
+    $('.heart').each(function(index, value) {
+      var r = Math.random() * (5000 - 1000) + 1000;
+      var d = Math.random() * (500 - 100) + 100;
+      $(this).delay(d).fadeIn(r)
+    });
+
+
+  </script>
+</body>
+</html>
