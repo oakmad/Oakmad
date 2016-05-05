@@ -12,7 +12,7 @@ body {
   right:0;
   margin: 0 20px 20px 0;
   padding: 5px 20px;
-  color: #fff;
+  color: #fefefa;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -25,7 +25,7 @@ body {
     float: left;
     text-align:center;
     padding-top: 18px;
-    color: #090909;
+    color: #fefefa;
 }
 .heart:before,
 .heart:after{
@@ -35,7 +35,7 @@ body {
     top: 0;
     width: 50px;
     height: 80px;
-    background: #C50129;
+    background: #c50129;
     -moz-border-radius: 50px 50px 0 0;
     border-radius: 50px 50px 0 0;
     -webkit-transform: rotate(-45deg);
