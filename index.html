@@ -10,9 +10,13 @@
 </head>
 <body>
   <div class="hearts">
-    <div id="footer"></div>
+    <footer>
+      <h1><span id="cnt"></span> <small>days</small></h1>
+      <div id="tag-line"></div>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+  <script src="countUp.min.js"></script>
   <script>
     mkHeart = function(d) {
       var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -24,7 +28,6 @@
     var d = new Date('Sun, 17 Jan 2016 14:02:05 GMT');
     var n = Date.now();
     var diff = Math.ceil(Math.abs(n - d.getTime())/ (1000 * 3600 * 24));
-    $('#footer').html('H, ' + diff + ' days, ' + diff + ' hearts for my love.');
     while (d <= n) {
       mkHeart(d);
       d.setDate(d.getDate() + 1);
@@ -33,7 +36,9 @@
       var r = Math.random() * (5000 - 1000) + 1000;
       $(this).css('visibility','visible').hide().fadeIn(r)
     });
-
+    $('#tag-line').html(diff + ' hearts for my love');
+    var cnt = new CountUp("cnt", 0, diff, 0, 5, {useEasing : false,});
+    cnt.start();
 
   </script>
 </body>
